@@ -1,67 +1,68 @@
 /* Set body background color and font family */
 body {
-    background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
-  
-/* Center the canvas and form elements */
-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-  
+
 /* Style the canvas */
 canvas {
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px #ddd;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #ddd;
 }
-  
+
 /* Style the color picker and brush size range input */
 label {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  display: inline-block;
+  width: 80px;
 }
-  
+
 input[type="color"],
 input[type="range"] {
-    margin: 5px 10px;
+  margin: 5px 10px;
 }
-  
-/* Style the clear board button */
-#clear-button {
-    padding: 10px 20px;
-    background-color: #f44336;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-  
-#clear-button:hover {
-    background-color: #d32f2f;
-}
-  
-/* Style the save image button */
+
+#clear-button,
 #save-button {
-    padding: 10px 20px;
-    background-color: #4177ff;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  transition: background-color 0.3s ease;
 }
-  
+
+#clear-button:before,
+#save-button:before {
+  font-family: "Font Awesome 5 Free";
+}
+
+#clear-button {
+  background-color: #f44336;
+  margin-top: 20px;
+}
+
+#clear-button:hover {
+  background-color: #d32f2f;
+}
+
+#save-button {
+  background-color: #4177ff;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
 #save-button:hover {
-    background-color: #2f6ed3;
+  background-color: #2f6ed3;
 }
-  

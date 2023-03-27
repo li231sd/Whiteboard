@@ -4,23 +4,20 @@
     <meta charset="utf-8">
     <title>Whiteboard App</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/19a6c9693b.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <center>
         <h1>Whiteboard</h1>
         <canvas id="canvas" width="600" height="400"></canvas>
         <br>
-        <div style="display: inline-block;">
-            <label>Color:</label>
-            <input type="color" id="color-picker" value="#000000">
-            <br>
-            <label>Brush size:</label>
-            <input type="range" id="brush-size" min="1" max="50" value="10">
-            <label>Clear Board:</label>
-            <input id="clear-button" type="button">
-            <label>Save Board:</label>
-            <input id="save-button" type="button" text="Download">
-        </div>
+        <label>Color:</label>
+        <input type="color" id="color-picker" value="#000000">
+        <br>
+        <label>Brush size:</label>
+        <input type="range" id="brush-size" min="1" max="50" value="10">
+        <button id="clear-button"><i class="fa-solid fa-eraser"></i></button>
+        <button id="save-button"><i class="fa-solid fa-file-arrow-down"></i></button>
     </center>
   </body>
 
