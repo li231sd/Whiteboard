@@ -18,6 +18,7 @@ canvas {
   border: 2px solid #ddd;
   border-radius: 5px;
   box-shadow: 0px 0px 5px #ddd;
+  cursor: crosshair;
 }
 
 /* Style the color picker and brush size range input */
@@ -35,6 +36,7 @@ input[type="range"] {
 }
 
 #clear-button,
+#addTextButton,
 #save-button {
   display: inline-block;
   padding: 10px 20px;
@@ -46,9 +48,8 @@ input[type="range"] {
   transition: background-color 0.3s ease;
 }
 
-#clear-button:before,
-#save-button:before {
-  font-family: "Font Awesome 5 Free";
+button::before {
+  font-family: "Font Awesome  Free";
 }
 
 #clear-button {
@@ -68,4 +69,14 @@ input[type="range"] {
 
 #save-button:hover {
   background-color: #2f6ed3;
+}
+
+#addTextButton {
+  background-color: #84ff41;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+#addTextButton:hover {
+  background-color: #6bd32f;
 }
