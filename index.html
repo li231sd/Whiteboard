@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Whiteboard App</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/19a6c9693b.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <center>
-      <div>
-        <h1>Whiteboard</h1>
-        <footer style="padding-bottom: 20px; font-size: 15px;">BETA 3.1</footer>
-        <canvas id="canvas" width="800" height="400"></canvas>
-        <br>
-        <label>Color:</label>
-        <input type="color" id="color-picker" value="#000000">
-        <br>
-        <label>Brush size:</label>
-        <input type="range" id="brush-size" min="1" max="50" value="10">
-        <br>
-        <button id="clear-button"><i class="fa-solid fa-eraser"></i></button>
-        <button id="save-button"><i class="fa-solid fa-file-arrow-down"></i></button>
-        <button id="addTextButton"><i class="fa-solid fa-font"></i></button>
-      </div>
-    </center>
-  </body>
-  
-  <script src="script.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<title>Whiteboard App</title>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/19a6c9693b.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div id="overlay">
+			<div id="loader">
+				<div class="spinner"></div>
+				<br>
+				<p>loading...</p>
+			</div>
+		</div>
+
+		<center>
+			<div>
+				<h1>Whiteboard App</h1>
+				<footer style="padding-bottom: 20px; font-size: 20px;">BETA 4.1</footer>
+				<canvas id="canvas" width="800" height="400"></canvas>
+				<br>
+				<label>Color:</label>
+				<input type="color" id="color-picker" value="#000000">
+				<br>
+				<label>Brush size:</label>
+				<input type="range" id="brush-size" min="1" max="50" value="10">
+				<br>
+				<button id="clear-button"><i class="fa-solid fa-eraser"></i></button>
+				<button id="save-button"><i class="fa-solid fa-file-arrow-down"></i></button>
+				<button id="addTextButton"><i class="fa-solid fa-font"></i></button>
+			</div>
+		</center>
+		<script src="script.js"></script>
+	</body>
 </html>

@@ -1,7 +1,9 @@
+// VARIABLES //
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const addTextButton = document.getElementById("addTextButton");
 
+var overlay = document.getElementById("overlay");
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
@@ -10,7 +12,7 @@ let textY = 0;
 
 addTextButton.addEventListener("click", addText);
 
-//PC
+// PC //
 canvas.addEventListener("mousedown", (e) => {
   isDrawing = true;
   lastX = e.offsetX;
@@ -33,28 +35,7 @@ canvas.addEventListener("mouseup", () => {
   isDrawing = false;
 });
 
-function addText() {
-  const text = prompt("Before adding text please click or tap somewhere on the board where you want to add your text:");
-
-  ctx.font = "25px Arial";
-  ctx.fillStyle = document.getElementById("color-picker").value;
-  const textX = lastX;
-  const textY = lastY;
-
-  const textWidth = ctx.measureText(text).width;
-  const textHeight = parseInt(ctx.font);
-
-  if (textX + textWidth > canvas.width) {
-    textX = canvas.width - textWidth;
-  }
-  if (textY + textHeight > canvas.height) {
-    textY = canvas.height - textHeight;
-  }
-
-  ctx.fillText(text, textX, textY);
-}
-
-//MOBILE
+// MOBILE //
 canvas.addEventListener("touchstart", (e) => {
   isDrawing = true;
   lastX = e.touches[0].clientX - canvas.offsetLeft;
@@ -78,6 +59,7 @@ canvas.addEventListener("touchend", () => {
   isDrawing = false;
 });
 
+// UNIVERSAL //
 function addText() {
   const text = prompt("Before adding text please click or tap somewhere on the board where you want to add your text:");
 
@@ -109,7 +91,17 @@ function isTouchDevice() {
   return 'ontouchstart' in window || navigator.maxTouchPoints > 0; 
 }
 
-//UNIVERSAL 
+overlay.style.display = "block";
+document.body.style.pointerEvents = "none";
+window.onload = function() {
+  setTimeout(function() {
+    var loader = document.getElementById("loader");
+    overlay.style.display = "none";
+    document.body.style.pointerEvents = "auto";
+    loader.style.display = "none";
+  }, 3500); 
+}
+
 document.getElementById("clear-button").addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
