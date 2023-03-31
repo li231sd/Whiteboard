@@ -8,6 +8,7 @@ const addImageButton = document.getElementById("addImageButton");
 const imageLoader = document.getElementById("imageLoader");
 const closeBtn = document.getElementById('close-release-notes');
 const releaseNotes = document.getElementById('release-notes');
+const initialBackgroundColor = "#ffffff";
 
 var overlay = document.getElementById("overlay");
 let isDrawing = false;
@@ -16,8 +17,24 @@ let lastY = 0;
 let textX = 0;
 let textY = 0;
 let isCircleDrawn = true;
+let currentBackgroundColor = initialBackgroundColor;
 
 addTextButton.addEventListener("click", addText);
+
+function resetCanvasBackground() {
+  currentBackgroundColor = initialBackgroundColor;
+  canvas.style.backgroundColor = currentBackgroundColor;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+document.getElementById("reset-btn").addEventListener("click", resetCanvasBackground);
+
+canvas.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+  canvas.style.backgroundColor = currentBackgroundColor;
+});
+
+resetCanvasBackground();
 
 addImageButton.addEventListener("click", function () {
   imageLoader.click();
