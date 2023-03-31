@@ -14,29 +14,35 @@
 		<center>
 			<div id="welcome-screen">
 				<h1 style="font-size: 70px;">Welcome to the Whiteboard!</h1>
-				<footer style="padding-left: 10px; font-size: 20px;">BETA 6.4</footer>
+				<footer style="padding-left: 10px; font-size: 20px;">BETA 6.8</footer>
 				<button id="start-button">Continue...</button>
 			</div>
 
 			<div id="whiteboard" class="hidden">
-				<header>
-					<h1>Whiteboard App</h1>
-				</header>
+				<h1>Whiteboard App</h1>
+
+				<div id="audio-container">
+					<audio id="audio-player" autoplay>
+					  <source src="audio.mp3" type="audio/mp3">
+					</audio>
+				</div>				  
 
 				<div id="release-notes">
 					<button id="close-release-notes"><i class="fa-regular fa-circle-xmark"></i></button>
-					<h2>Release Notes (BETA 6.4)</h2>
-					<footer style="padding-left: 10px; font-size: 15px;">3/30/23</footer>
-					<p>FIX TOOL TIPS!</p>
-					<p>RESET CANVAS BUTTON IN THE TOP RIGHT!</p>
+					<h2>Release Notes (BETA 6.8)</h2>
+					<footer style="padding-left: 10px; font-size: 15px;">3/31/23</footer>
+					<p>AUDIO PAUSE/PLAY BUTTON!</p>
+					<p>PUT THE DELETE ALL WITH REST OF BUTTONS!</p>
+					<p>PUT NICER PROMPTS!</p>
 					<p>BUG FIXES!</p>
 				</div>
 
-				<footer style="padding-bottom: 20px; font-size: 20px;">BETA 6.4</footer>
+				<footer style="padding-bottom: 20px; font-size: 20px;">BETA 6.8</footer>
+
 				<div id="canvas-container">
 					<canvas title="I am your drawing board! When you right click me I will change to the color of the color picker!" id="canvas" width="800" height="400"></canvas>
-					<button title="I can reset the canvas to original properties including background color!" id="reset-btn"><i class="fa-solid fa-trash"></i></button>
 				</div>
+
 				<br>
 				<label>Color:</label>
 				<input title="Click me to change the color" type="color" id="color-picker" value="#000000">
@@ -53,6 +59,9 @@
 						<button title="Click me to add image" id="addImageButton"><i class="fa-solid fa-image"></i></button>
 						<input type="file" id="imageLoader" name="imageLoader" style="display:none">
 					</div>
+					<br>
+					<button title="I can reset the canvas to original properties including background color!" id="reset-btn"><i class="fa-solid fa-trash"></i></button>
+					<button title="Click me to Pause/Play audio!" id="play-button"><i class="fa-solid fa-circle-play"></i></button>
 				</div>
 			</div>
 		</center>
