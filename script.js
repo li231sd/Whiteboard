@@ -1,10 +1,13 @@
-// VARIABLES //
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const addTextButton = document.getElementById("addTextButton");
 const startButton = document.getElementById("start-button");
 const continueButton = document.getElementById('start-button');
 const loadingScreen = document.querySelector('#loading-screen');
+const addImageButton = document.getElementById("addImageButton");
+const imageLoader = document.getElementById("imageLoader");
+const closeBtn = document.getElementById('close-release-notes');
+const releaseNotes = document.getElementById('release-notes');
 
 var overlay = document.getElementById("overlay");
 let isDrawing = false;
@@ -12,11 +15,41 @@ let lastX = 0;
 let lastY = 0;
 let textX = 0;
 let textY = 0;
+let isCircleDrawn = true;
 
-// EVENT LISTENERS //
 addTextButton.addEventListener("click", addText);
 
-// PC //
+addImageButton.addEventListener("click", function () {
+  imageLoader.click();
+});
+
+closeBtn.addEventListener('click', () => {
+  releaseNotes.style.display = 'none';
+});
+
+imageLoader.addEventListener("change", function (event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    const img = new Image();
+    img.onload = function () {
+      ctx.drawImage(img, 0, 0);
+    };
+    img.src = event.target.result;
+  };
+
+  reader.readAsDataURL(file);
+});
+
+canvas.addEventListener('contextmenu', (e) => {
+  e.preventDefault(); 
+
+  const color = document.getElementById("color-picker").value;
+  canvasColor = color;
+  canvas.style.backgroundColor = canvasColor;
+});
+
 canvas.addEventListener("mousedown", (e) => {
   isDrawing = true;
   lastX = e.offsetX;
@@ -72,72 +105,34 @@ function addText() {
   ctx.fillText(sanitizedText, textX, textY);
 }
 
-// MOBILE //
-canvas.addEventListener("touchstart", (e) => {
-  isDrawing = true;
-  lastX = e.touches[0].clientX - canvas.offsetLeft;
-  lastY = e.touches[0].clientY - canvas.offsetTop;
-});
-
-canvas.addEventListener("touchmove", (e) => {
-  e.preventDefault();
-  if (!isDrawing) return;
-  ctx.beginPath();
-  ctx.moveTo(lastX, lastY);
-  ctx.lineTo(e.touches[0].clientX - canvas.offsetLeft, e.touches[0].clientY - canvas.offsetTop);
-  ctx.strokeStyle = document.getElementById("color-picker").value;
-  ctx.lineWidth = document.getElementById("brush-size").value;
-  ctx.stroke();
-  lastX = e.touches[0].clientX - canvas.offsetLeft;
-  lastY = e.touches[0].clientY - canvas.offsetTop;
-});
-
-canvas.addEventListener("touchend", () => {
-  isDrawing = false;
-});
-
-function addText(event) {
-  const text = prompt("Before adding text please click or tap somewhere on the board where you want to add your text: ");
-  const sanitizedText = DOMPurify.sanitize(text);
-
-  if (!sanitizedText || sanitizedText.trim().length === 0) {
-    alert('Please enter a valid text!');
-    return;
-  }
-
-  let touchX, touchY;
-  if (isTouchDevice()) {
-    const touch = event.touches[0];
-    touchX = touch.clientX - canvas.offsetLeft;
-    touchY = touch.clientY - canvas.offsetTop;
-  } else {
-    touchX = lastX;
-    touchY = lastY;
-  }
-
-  ctx.font = "25px Arial";
-  ctx.fillStyle = document.getElementById("color-picker").value;
-  
-  const textWidth = ctx.measureText(sanitizedText).width;
-  const textHeight = parseInt(ctx.font);
-
-  let textX = touchX;
-  let textY = touchY;
-  if (textX + textWidth > canvas.width) {
-    textX = canvas.width - textWidth;
-  }
-  if (textY + textHeight > canvas.height) {
-    textY = canvas.height - textHeight;
-  }
-
-  ctx.fillText(sanitizedText, textX, textY);
-}
-
 function isTouchDevice() {
-  return 'ontouchstart' in window || navigator.maxTouchPoints > 0; 
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 }
 
-// UNIVERSAL //
+function drawCircle(x, y, radius) {
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, 2 * Math.PI);
+  ctx.strokeStyle = document.getElementById("color-picker").value;
+  ctx.stroke();
+}
+
+canvas.addEventListener("click", function (event) {
+  if (isCircleDrawn === false) {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    let radius = prompt("Enter the radius of the circle:");
+    drawCircle(x, y, radius);
+    isCircleDrawn = true
+  }
+});
+
+document.getElementById("addCircleButton").addEventListener("click", function (event) {
+  if (isCircleDrawn === true) {
+    isCircleDrawn = false;
+  }
+});
+
 document.getElementById("whiteboard").classList.add("hidden");
 
 document.getElementById('start-button').addEventListener('click', function() {

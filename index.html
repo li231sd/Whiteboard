@@ -14,25 +14,47 @@
 		<center>
 			<div id="welcome-screen">
 				<h1 style="font-size: 70px;">Welcome to the Whiteboard!</h1>
-				<footer style="padding-left: 10px; font-size: 20px;">BETA 5.0</footer>
+				<footer style="padding-left: 10px; font-size: 20px;">BETA 6.0</footer>
 				<button id="start-button">Continue...</button>
 			</div>
 
 			<div id="whiteboard" class="hidden">
-				<h1>Whiteboard App</h1>
-				<footer style="padding-bottom: 20px; font-size: 20px;">BETA 5.0</footer>
-				<canvas id="canvas" width="800" height="400"></canvas>
+				<header>
+					<h1>Whiteboard App</h1>
+				</header>
+
+				<div id="release-notes">
+					<button id="close-release-notes"><i class="fa-regular fa-circle-xmark"></i></button>
+					<h2>Release Notes (BETA 6.0)</h2>
+					<footer style="padding-left: 10px; font-size: 15px;">3/30/23</footer>
+					<p>CIRCLE TOOL!</p>
+					<p>IMAGE TOOL!</p>
+					<p>RELEASE NOTES!</p>
+					<p>RIGHT CLICK TO CHANGE CANVAS COLOR!</p>
+					<p>HOVER TO SEE TOOL TIPS!</p>
+					<p>REMOVED MOBILE SUPPORT FOR A WHILE!</p>
+					<p>BUG FIXES!</p>
+					<p>AND MORE!</p>
+				</div>
+
+				<footer style="padding-bottom: 20px; font-size: 20px;">BETA 6.0</footer>
+				<canvas title="When you right click me I will change to the color of the color picker!" id="canvas" width="800" height="400"></canvas>
 				<br>
 				<label>Color:</label>
-				<input type="color" id="color-picker" value="#000000">
+				<input title="Click me to change the color" type="color" id="color-picker" value="#000000">
 				<br>
 				<label>Brush size:</label>
-				<input type="range" id="brush-size" min="1" max="50" value="5">
+				<input title="Drag me to increase/decrease the brush size" type="range" id="brush-size" min="1" max="50" value="5">
 				<br>
 				<div class="tools">
-					<button id="clear-button"><i class="fa-solid fa-eraser"></i></button>
-					<button id="save-button"><i class="fa-solid fa-file-arrow-down"></i></button>
-					<button id="addTextButton"><i class="fa-solid fa-font"></i></button>
+					<button title="Click me to erase the canvas" id="clear-button"><i class="fa-solid fa-eraser"></i></button>
+					<button title="Click me to download the canvas" id="save-button"><i class="fa-solid fa-download"></i></button>
+					<button title="Click me to add text" id="addTextButton"><i class="fa-solid fa-font"></i></button>
+					<div>
+						<button title="Click me to add image" id="addImageButton"><i class="fa-solid fa-image"></i></button>
+						<input type="file" id="imageLoader" name="imageLoader" style="display:none">
+					</div>
+					<button title="Click me to add a circle, when you click me I will do nothing you have to click the board to add a circle" id="addCircleButton"><i class="fa-regular fa-circle"></i></button>
 				</div>
 			</div>
 		</center>

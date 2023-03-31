@@ -10,6 +10,49 @@ body {
   height: 100vh;
 }
 
+header {
+  background-color: #f5f5f5;
+  color: #333; 
+  padding: 20px; 
+  text-align: center; 
+}
+
+header h1 {
+  margin: 0; 
+  font-size: 36px;
+}
+
+#release-notes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#release-notes h2 {
+  text-align: center;
+}
+
+#close-release-notes {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+  padding: 0;
+}
+
+#close-release-notes:hover {
+  color: red;
+}
+
 #welcome-screen {
   position: absolute;
   top: 50%;
@@ -73,9 +116,7 @@ input[type="range"] {
   margin: 5px 10px;
 }
 
-#clear-button,
-#addTextButton,
-#save-button {
+button {
   display: inline-block;
   padding: 10px 20px;
   border: none;
@@ -122,3 +163,24 @@ button::before {
 #tools {
   padding-bottom: 10px;
 }
+
+#addCircleButton {
+  background-color: #ff4177;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+#addCircleButton:hover {
+  background-color: #d32f45;
+}
+
+#addImageButton {
+  background-color: #e616e2;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+#addImageButton:hover {
+  background-color: #b706ba;
+}
+
