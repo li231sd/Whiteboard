@@ -1,70 +1,64 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Whiteboard App</title>
-		<link rel="stylesheet" href="styles.css">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
-		<script src="https://kit.fontawesome.com/19a6c9693b.js" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.1/dist/purify.min.js"></script>
-	</head>
-	<body>
-		<center>
-			<div id="welcome-screen">
-				<h1 style="font-size: 70px;">Welcome to the Whiteboard!</h1>
-				<footer style="padding-left: 10px; font-size: 20px;">BETA 6.8</footer>
-				<button id="start-button">Continue...</button>
-			</div>
-
-			<div id="whiteboard" class="hidden">
-				<h1>Whiteboard App</h1>
-
-				<div id="audio-container">
-					<audio id="audio-player" autoplay>
-					  <source src="audio.mp3" type="audio/mp3">
-					</audio>
-				</div>				  
-
-				<div id="release-notes">
-					<button id="close-release-notes"><i class="fa-regular fa-circle-xmark"></i></button>
-					<h2>Release Notes (BETA 6.8)</h2>
-					<footer style="padding-left: 10px; font-size: 15px;">3/31/23</footer>
-					<p>AUDIO PAUSE/PLAY BUTTON!</p>
-					<p>PUT THE DELETE ALL WITH REST OF BUTTONS!</p>
-					<p>PUT NICER PROMPTS!</p>
-					<p>BUG FIXES!</p>
-				</div>
-
-				<footer style="padding-bottom: 20px; font-size: 20px;">BETA 6.8</footer>
-
-				<div id="canvas-container">
-					<canvas title="I am your drawing board! When you right click me I will change to the color of the color picker!" id="canvas" width="800" height="400"></canvas>
-				</div>
-
-				<br>
-				<label>Color:</label>
-				<input title="Click me to change the color" type="color" id="color-picker" value="#000000">
-				<br>
-				<label>Brush size:</label>
-				<input title="Drag me to increase/decrease the brush size" type="range" id="brush-size" min="1" max="50" value="5">
-				<br>
-				<div class="tools">
-					<button title="Click me to erase the canvas" id="clear-button"><i class="fa-solid fa-eraser"></i></button>
-					<button title="Click me to download the canvas" id="save-button"><i class="fa-solid fa-download"></i></button>
-					<button title="Click me to add a circle, when you click me I will do nothing you have to click the board to add a circle" id="addCircleButton"><i class="fa-regular fa-circle"></i></button>
-					<button title="Click me to add text" id="addTextButton"><i class="fa-solid fa-font"></i></button>
-					<div>
-						<button title="Click me to add image" id="addImageButton"><i class="fa-solid fa-image"></i></button>
-						<input type="file" id="imageLoader" name="imageLoader" style="display:none">
-					</div>
-					<br>
-					<button title="I can reset the canvas to original properties including background color!" id="reset-btn"><i class="fa-solid fa-trash"></i></button>
-					<button title="Click me to Pause/Play audio!" id="play-button"><i class="fa-solid fa-circle-play"></i></button>
-				</div>
-			</div>
-		</center>
-		<script src="script.js"></script>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Whiteboard App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/19a6c9693b.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.1/dist/purify.min.js"></script>
+  </head>
+  <body>
+    <center>
+      <div id="welcome-screen">
+        <h1 style="font-size: 70px;">Welcome to the Whiteboard!</h1>
+        <footer style="padding-left: 10px; font-size: 20px;">BETA 6.8</footer>
+        <button id="start-button">Continue...</button>
+      </div>
+      <div id="whiteboard" class="hidden">
+        <h1>Whiteboard App</h1>
+        <div id="audio-container">
+          <audio id="audio-player" autoplay>
+            <source src="audio.mp3" type="audio/mp3">
+          </audio>
+        </div>
+        <div id="release-notes">
+          <button id="close-release-notes"><i class="fa-regular fa-circle-xmark"></i></button>
+          <h2>Release Notes (BETA 6.8)</h2>
+          <footer style="padding-left: 10px; font-size: 15px;">3/31/23</footer>
+          <p>AUDIO PAUSE/PLAY BUTTON!</p>
+          <p>PUT THE DELETE ALL WITH REST OF BUTTONS!</p>
+          <p>PUT NICER PROMPTS!</p>
+          <p>BUG FIXES!</p>
+        </div>
+        <footer style="padding-bottom: 20px; font-size: 20px;">BETA 6.8</footer>
+        <div id="canvas-container">
+          <canvas title="I am your drawing board! When you right click me I will change to the color of the color picker!" id="canvas" width="800" height="400"></canvas>
+        </div>
+        <br>
+        <label>Color:</label>
+        <input title="Click me to change the color" type="color" id="color-picker" value="#000000">
+        <br>
+        <label>Brush size:</label>
+        <input title="Drag me to increase/decrease the brush size" type="range" id="brush-size" min="1" max="50" value="5">
+        <br>
+        <div class="tools">
+          <button title="Click me to erase the canvas" id="clear-button"><i class="fa-solid fa-eraser"></i></button>
+          <button title="Click me to download the canvas" id="save-button"><i class="fa-solid fa-download"></i></button>
+          <button title="Click me to add a circle, when you click me I will do nothing you have to click the board to add a circle" id="addCircleButton"><i class="fa-regular fa-circle"></i></button>
+          <button title="Click me to add text" id="addTextButton"><i class="fa-solid fa-font"></i></button>
+          <div>
+            <button title="Click me to add image" id="addImageButton"><i class="fa-solid fa-image"></i></button>
+            <input type="file" id="imageLoader" name="imageLoader" style="display:none">
+          </div>
+          <br>
+          <button title="I can reset the canvas to original properties including background color!" id="reset-btn"><i class="fa-solid fa-trash"></i></button>
+          <button title="Click me to Pause/Play audio!" id="play-button"><i class="fa-solid fa-circle-play"></i></button>
+        </div>
+      </div>
+    </center>
+    <script src="script.js"></script>
+  </body>
 </html>
